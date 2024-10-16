@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email {{ email[0] }}</title>
+</head>
+<body>
+    <h1>Email {{ email[0] }}</h1>
+    <p><strong>From:</strong> {{ email[1] }}</p>
+    <p><strong>Subject:</strong> {{ email[2] }}</p>
+    <p><strong>Content:</strong> {{ email[3] }}</p>
+    <p><strong>Classification:</strong> {{ email[4] }}</p>
+    <p><strong>Sentiment:</strong> {{ email[5] }}</p>
+
+    <form method="post" action="{{ url_for('email_action', email_id=email[0]) }}">
+        <label for="action">Choose an action:</label>
+        <select name="action" id="action">
+            <option value="reply">Reply</option>
+            <option value="forward">Forward</option>
+            <option value="close">Close</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <form method="post" action="{{ url_for('provide_feedback', email_id=email[0]) }}">
+        <label>Was the AI's classification correct?</label>
+        <input type="radio" name="feedback" value="correct"> Yes
+        <input type="radio" name="feedback" value="incorrect"> No
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <a href="{{ url_for('inbox') }}">Back to Inbox</a>
+</body>
+</html>
