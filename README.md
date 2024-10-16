@@ -1,1 +1,1 @@
-email_triage helps you to categorize emails on given criteria and able to reply, forward emails to given mail ids.  
+email_triage helps you to categorize emails on given criteria and able to reply, forward emails to given mail ids. You need to setup google cloud mail app handling before proceeding further and for CRM integration salesforce is used and it requires contact setup in that too.
